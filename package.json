@@ -1,0 +1,62 @@
+{
+  "name": "monorepo-template",
+  "version": "1.0.0",
+  "description": "monorepo template",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/nuxt-api/**",
+    "apps/express-api/**"
+  ],
+  "engines": {
+    "node": "20.11.1",
+    "pnpm": "8.15.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint-fix": "eslint . --ext .js,.cjs,.mjs --fix",
+    "check-format": "prettier . --check",
+    "format": "prettier . --write",
+    "format-fix": "prettier . --write",
+    "prepare": "husky",
+    "commit": "cz",
+    "check-branch-name": "node scripts/check-branch-name.js"
+  },
+  "keywords": [],
+  "author": "J.McLain",
+  "license": "GNU",
+  "dependencies": {
+    "express-api": "workspace:*",
+    "nuxt-app": "workspace:*"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.3.0",
+    "@typescript-eslint/parser": "^7.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-emoji": "1.3.2-canary.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "prettier-eslint": "^16.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
+    }
+  },
+  "lint-staged": {
+    "!(*test).{ts}": [
+      "eslint . --ext .ts,.js --fix",
+      "prettier --write",
+      "git add --all"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-emoji"
+    }
+  }
+}

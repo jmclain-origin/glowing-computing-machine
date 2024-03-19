@@ -1,0 +1,5 @@
+packages:
+  - packages/*
+  - apps/*
+  - nuxt-app
+  - express-api
