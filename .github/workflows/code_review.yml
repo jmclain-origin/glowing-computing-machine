@@ -1,0 +1,14 @@
+name: Test, Build, and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+      
+    steps:
+      - name: AI-based PR Reviewer & Summarizer with Chat Capabilities
+        uses: coderabbitai/ai-pr-reviewer@1.16.2
