@@ -1,4 +1,4 @@
-import { Schema, model, Document, Types } from "mongoose";
+import { Schema, model, Document, Types } from 'mongoose';
 
 interface IBlogPost extends Document {
   title: string;
@@ -55,7 +55,7 @@ const blogPostSchema = new Schema<IBlogPost>({
   relatedBlogs: [
     {
       type: Schema.Types.ObjectId,
-      ref: "BlogPost",
+      ref: 'BlogPost',
     },
   ],
   // TODO: create models for User and BlogComment
@@ -71,6 +71,6 @@ const blogPostSchema = new Schema<IBlogPost>({
   // }],
 });
 
-const BlogPost = model<IBlogPost>("BlogPost", blogPostSchema);
+const BlogPost = model<IBlogPost>('BlogPost', blogPostSchema);
 
 export default BlogPost;
