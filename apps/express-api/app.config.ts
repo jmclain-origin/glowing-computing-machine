@@ -13,8 +13,9 @@ export enum Env {
   local = "local",
 }
 
-export const SECRETS = {
+export const CONFIG = {
   NODE_ENV: process?.env?.NODE_ENV ?? "development",
   PORT: process.env.PORT ?? 5000,
 };
+export type AppConfig = typeof CONFIG;
 export type Secrets = typeof SECRETS;
