@@ -76,7 +76,3 @@ jobs:
             "Documentation", "Refactor", "Style", "Test", "Chore", or "Revert". Provide a bullet-point list, 
             e.g., "- New Feature: Added search functionality to the UI". Limit your response to 50-100 words 
             and emphasize features visible to the end-user while omitting code-level details.
-
-          bot_icon: '<img src="https://avatars.githubusercontent.com/in/347564?s=41" alt="Image description" width="20" height="20">'
-
-        

@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-import BlogPost from "../models/blogPost.model";
+import { Request, Response } from 'express';
+import BlogPost from '../models/blogPost.model';
 
 // Get all blog posts
 export const getAllBlogPosts = async (req: Request, res: Response) => {
@@ -7,7 +7,7 @@ export const getAllBlogPosts = async (req: Request, res: Response) => {
     const blogPosts = await BlogPost.find();
     res.json(blogPosts);
   } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
 
@@ -17,11 +17,11 @@ export const getBlogPostById = async (req: Request, res: Response) => {
   try {
     const blogPost = await BlogPost.findById(id);
     if (!blogPost) {
-      return res.status(404).json({ message: "Blog post not found" });
+      return res.status(404).json({ message: 'Blog post not found' });
     }
     res.json(blogPost);
   } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
 
@@ -32,7 +32,7 @@ export const getBlogPostsByParameter = async (req: Request, res: Response) => {
     const blogPosts = await BlogPost.find({ parameter });
     res.json(blogPosts);
   } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
 
@@ -43,7 +43,7 @@ export const createBlogPost = async (req: Request, res: Response) => {
     const newBlogPost = await BlogPost.create({ title, content });
     res.status(201).json(newBlogPost);
   } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
 
@@ -55,14 +55,14 @@ export const updateBlogPost = async (req: Request, res: Response) => {
     const updatedBlogPost = await BlogPost.findByIdAndUpdate(
       id,
       { title, content },
-      { new: true },
+      { new: true }
     );
     if (!updatedBlogPost) {
-      return res.status(404).json({ message: "Blog post not found" });
+      return res.status(404).json({ message: 'Blog post not found' });
     }
     res.json(updatedBlogPost);
   } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
 
@@ -72,10 +72,10 @@ export const deleteBlogPost = async (req: Request, res: Response) => {
   try {
     const deletedBlogPost = await BlogPost.findByIdAndDelete(id);
     if (!deletedBlogPost) {
-      return res.status(404).json({ message: "Blog post not found" });
+      return res.status(404).json({ message: 'Blog post not found' });
     }
-    res.json({ message: "Blog post deleted successfully" });
+    res.json({ message: 'Blog post deleted successfully' });
   } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: 'Internal server error' });
   }
 };

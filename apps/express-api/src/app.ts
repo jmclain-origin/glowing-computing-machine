@@ -1,6 +1,6 @@
-import express, { Application } from "express";
-import cors from "cors";
-import routes from "./routes";
+import express, { Application } from 'express';
+import cors from 'cors';
+import routes from './routes';
 
 const app: Application = express();
 
@@ -10,6 +10,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // Routes
-app.use("/", routes);
+app.use('/', routes);
 
 export default app;

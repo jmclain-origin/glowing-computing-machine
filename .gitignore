@@ -11,8 +11,8 @@ node_modules
 /vendor
 
 # Ignore build artifacts
-/build
-/dist
+build
+dist
 
 # Ignore logs and temporary files
 /logs
