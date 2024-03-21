@@ -4,8 +4,8 @@
   "description": "monorepo template",
   "private": true,
   "engines": {
-    "node": "18.19.1",
-    "pnpm": "8.15.3"
+    "node": "20.11.1",
+    "pnpm": "8.15"
   },
   "scripts": {
     "dev:server": "pnpm --filter express-api run dev",

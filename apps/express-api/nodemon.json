@@ -1,6 +1,8 @@
 {
+  "restartable": "rs",
   "watch": ["src"],
-  "ext": "js", 
+  "delay": 300,
+  "ext": "js, ts", 
   "ignore": ["src/**/*.test.js"], 
   "exec": "ts-node server.ts" ,
   "verbose": true,

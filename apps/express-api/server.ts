@@ -1,5 +1,5 @@
 import app from './src/app';
-import { CONFIG, AppConfig } from './app.config';
+import { CONFIG, AppConfig } from './src/config/app.config';
 
 const { PORT }: AppConfig = CONFIG;
 

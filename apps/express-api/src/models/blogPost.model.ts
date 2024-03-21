@@ -1,18 +1,18 @@
 import { Schema, model, Document, Types } from 'mongoose';
 
-interface IBlogPost extends Document {
+export interface IBlogPost extends Document {
   title: string;
   articleImages: string[];
   articleBody: string;
-  keywordSearch: string[];
+  keywords: string[];
   starRating: number;
   upVote: number;
   downVote: number;
   dateCreated: Date;
   dateUpdated: Date;
   relatedBlogs: Types.ObjectId[];
-  // author: Types.ObjectId;
-  // comments: Types.ObjectId[];
+  author: Types.ObjectId;
+  comments: Types.ObjectId[];
 }
 
 const blogPostSchema = new Schema<IBlogPost>({
@@ -28,7 +28,7 @@ const blogPostSchema = new Schema<IBlogPost>({
     type: String,
     required: true,
   },
-  keywordSearch: {
+  keywords: {
     type: [String],
     default: [],
   },
@@ -58,17 +58,18 @@ const blogPostSchema = new Schema<IBlogPost>({
       ref: 'BlogPost',
     },
   ],
-  // TODO: create models for User and BlogComment
-  // author: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'User',
-  //   required: true,
-  // },
-  // comments: [{
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'BlogComment',
-  //   default: [],
-  // }],
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  comments: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Comment',
+      default: [],
+    },
+  ],
 });
 
 const BlogPost = model<IBlogPost>('BlogPost', blogPostSchema);
